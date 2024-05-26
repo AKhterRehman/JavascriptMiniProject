@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Calculator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .calculator {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .calculator h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .calculator input,
+  .calculator select,
+  .calculator button {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  .calculator button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .calculator button:hover {
+    background-color: #218838;
+  }
+
+  .calculator p#result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+  <div class="calculator">
+    <h2>JavaScript Calculator</h2>
+    <p>Enter two numbers and select an operation to perform:</p>
+    
+    <!-- Input fields for numbers and select menu for operation -->
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <select id="operation">
+      <option value="add">Addition (+)</option>
+      <option value="subtract">Subtraction (-)</option>
+      <option value="multiply">Multiplication (*)</option>
+    </select>
+    
+    <!-- Button to calculate result -->
+    <button onclick="calculate()">Calculate</button>
+    
+    <!-- Placeholder for result -->
+    <p id="result"></p>
+  </div>
+
+  <script>
+    // Function to perform calculation based on selected operation
+    function calculate() {
+      // Get the input values and selected operation
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+      var operation = document.getElementById("operation").value;
+      
+      // Perform calculation based on selected operation
+      var result;
+      switch(operation) {
+        case "add":
+          result = num1 + num2;
+          break;
+        case "subtract":
+          result = num1 - num2;
+          break;
+        case "multiply":
+          result = num1 * num2;
+          break;
+        default:
+          result = "Invalid operation";
+      }
+      
+      // Display the result
+      document.getElementById("result").innerHTML = "Result: " + result;
+    }
+  </script>
+</body>
+</html>
