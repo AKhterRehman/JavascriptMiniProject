@@ -1,0 +1,2 @@
+# JavascriptMiniProject
+javascipt
